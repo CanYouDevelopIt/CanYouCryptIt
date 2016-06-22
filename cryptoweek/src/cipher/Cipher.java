@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class Cipher implements ICipher {
 
-	public static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .,;:\"'<>";
+	public static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	@Override
 	public Object generateKey(){
@@ -148,11 +148,11 @@ public class Cipher implements ICipher {
 		File key = new File("files/key.txt");
 		File message = new File("files/message.txt");
 		File encrypted = new File("files/encrypted.txt");
-		//Object key = cipher.generateKey();
+		//Object cle = cipher.generateKey();
 		//table = cipher.tableConversion(key);
-		//System.out.println("Key : " + key);
-		//cipher.encode(message, key, encrypted);
-		cipher.decode(message, key, encrypted);
+		//System.out.println("Key : " + cle);
+		cipher.encode(message, key, encrypted);
+		//cipher.decode(message, key, encrypted);
 		//cipher.writeKey(f);
 		//System.out.println(cipher.readKey(f));
 	}
