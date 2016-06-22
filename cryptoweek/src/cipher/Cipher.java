@@ -14,7 +14,7 @@ public class Cipher implements ICipher {
 	public static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	@Override
-	public Object generateKey(){
+	public Object generateKey() {
 
 		char[] chars = alphabet.toCharArray();
 		int index = chars.length, randomIndex;
@@ -31,10 +31,10 @@ public class Cipher implements ICipher {
 		return new String(chars);
 	}
 
-	public HashMap<Character, Character> tableConversion(Object key){
-		HashMap<Character,Character> table = new HashMap<Character, Character>();
+	public HashMap<Character, Character> tableConversion(Object key) {
+		HashMap<Character, Character> table = new HashMap<Character, Character>();
 		String k = key.toString();
-		for(int i=0 ; i < alphabet.length() ; i++){
+		for (int i = 0; i < alphabet.length(); i++) {
 			table.put(alphabet.charAt(i), k.charAt(i));
 		}
 		return table;
@@ -50,8 +50,8 @@ public class Cipher implements ICipher {
 				cle += rKey.readLine();
 			}
 			rKey.close();
-			HashMap<Character,Character> table = new HashMap<Character, Character>();
-			for(int i=0 ; i < alphabet.length() ; i++){
+			HashMap<Character, Character> table = new HashMap<Character, Character>();
+			for (int i = 0; i < alphabet.length(); i++) {
 				table.put(alphabet.charAt(i), cle.charAt(i));
 			}
 
@@ -61,7 +61,7 @@ public class Cipher implements ICipher {
 				mess += rMess.readLine();
 			}
 			rMess.close();
-			for (int i = 0 ; i < message.length(); i++){
+			for (int i = 0; i < message.length(); i++) {
 				stringBuilder.append(table.get(mess.charAt(i)));
 			}
 
@@ -91,12 +91,12 @@ public class Cipher implements ICipher {
 			}
 			rKey.close();
 
-			HashMap<Character,Character> table = new HashMap<Character, Character>();
-			for(int i=0 ; i < alphabet.length() ; i++){
+			HashMap<Character, Character> table = new HashMap<Character, Character>();
+			for (int i = 0; i < alphabet.length(); i++) {
 				table.put(alphabet.charAt(i), cle.charAt(i));
 			}
 
-			for (int i = 0 ; i < cryp.length(); i++){
+			for (int i = 0; i < cryp.length(); i++) {
 				for (Entry<Character, Character> entry : table.entrySet()) {
 					if (Objects.equals(cryp.charAt(i), entry.getValue())) {
 						stringBuilder.append(entry.getKey());
@@ -114,7 +114,6 @@ public class Cipher implements ICipher {
 		}
 	}
 
-
 	public Object readKey(File f) {
 
 		String key = "";
@@ -130,7 +129,6 @@ public class Cipher implements ICipher {
 		}
 		return key;
 	}
-
 
 	public void writeKey(File f) {
 		try {
@@ -148,13 +146,13 @@ public class Cipher implements ICipher {
 		File key = new File("files/key.txt");
 		File message = new File("files/message.txt");
 		File encrypted = new File("files/encrypted.txt");
-		//Object cle = cipher.generateKey();
-		//table = cipher.tableConversion(key);
-		//System.out.println("Key : " + cle);
+		// Object cle = cipher.generateKey();
+		// table = cipher.tableConversion(key);
+		// System.out.println("Key : " + cle);
+		cipher.writeKey(key);
 		cipher.encode(message, key, encrypted);
-		//cipher.decode(message, key, encrypted);
-		//cipher.writeKey(f);
-		//System.out.println(cipher.readKey(f));
+		// cipher.decode(message, key, encrypted);
+		// System.out.println(cipher.readKey(f));
 	}
 
 }
