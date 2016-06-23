@@ -13,7 +13,7 @@ public class Transposition {
 	static int KEY_LENGTH;
 
 	public static void main(String[] args) {
-		new AttackTransposition().execute(new File(args[0]), new File(args[1]), new File(args[2]));
+		new AttackTransposition().execute(new File("files/encrypted.txt"), new File("files/key.txt"), new File("files/message.txt"));
 
 	}
 
@@ -70,20 +70,5 @@ public class Transposition {
 		System.out.println("Decoded:   [" + decoded + "]");
 		return decoded;
 	}
-/*
-	private static String decodeMathieu(String msg) {
-
-		String outputstring = "";
-		int stepforDec=0;
-		stepforDec= msg.length() / KEY_LENGTH;
-		for(int j=0;j<stepforDec;j++){ 
-			for(int i=j;i<msg.length();i+=stepforDec){
-				outputstring += msg.charAt(i); 
-			}
-		}
-		System.out.println("Decoded:   [" + outputstring + "]");
-		return outputstring;
-	}
-*/
 
 }

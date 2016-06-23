@@ -181,7 +181,7 @@ public class AttackTransposition implements IExecute {
 
 	@Override
 	public void execute(File encoded, File key, File decoded) {
-		in = getClass().getResourceAsStream("/files/listemot.txt");
+		in = getClass().getResourceAsStream("files/listemot.txt");
 		String msg;
 		BufferedReader br;
 		try {
